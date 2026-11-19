@@ -16,10 +16,10 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - uses: android-actions/setup-android@v3
-
       - name: Install SDK pieces
-        run: sdkmanager "platforms;android-30" "build-tools;30.0.3"
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-30" "build-tools;30.0.3"
 
       - name: Java 11 for the project build
         uses: actions/setup-java@v4
