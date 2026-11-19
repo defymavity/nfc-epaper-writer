@@ -118,7 +118,7 @@ class NfcFlasher : AppCompatActivity() {
         val nfcIntent = Intent(this, javaClass).apply {
             addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
         }
-        this.mPendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
+        this.mPendingIntent = PendingIntent.getActivity(this, 0, intent, 0x02000000)
         // Set up the filters
         var ndefIntentFilter: IntentFilter = IntentFilter(NfcAdapter.ACTION_NDEF_DISCOVERED)
         try {
