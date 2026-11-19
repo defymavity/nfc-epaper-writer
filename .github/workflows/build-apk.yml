@@ -10,15 +10,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-java@v4
+      - name: Java 17 for the SDK installer
+        uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '11'
+          java-version: '17'
 
       - uses: android-actions/setup-android@v3
 
       - name: Install SDK pieces
         run: sdkmanager "platforms;android-30" "build-tools;30.0.3"
+
+      - name: Java 11 for the project build
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '11'
 
       - name: Build debug APK
         run: |
