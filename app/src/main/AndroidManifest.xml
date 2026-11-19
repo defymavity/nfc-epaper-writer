@@ -19,7 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NFCEInkWriter">
-        <activity android:name=".NfcFlasher" android:launchMode="singleTask">
+        <activity android:name=".NfcFlasher" android:launchMode="singleTask" android:exported="false">
             <!--
                 Note: This is not currently working, cannot override AAR this way
                 @TODO - hook into foreground dispatch system
@@ -37,9 +37,9 @@
             <!--        android:scheme="vnd.android.nfc" />-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name=".TextEditor" />
-        <activity android:name=".WysiwygEditor" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".TextEditor" android:exported="false" />
+        <activity android:name=".WysiwygEditor" android:exported="false" />
+        <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,6 +47,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.canhub.cropper.CropImageActivity"
+            android:exported="false"
             android:theme="@style/Base.Theme.AppCompat"/>
     </application>
 
